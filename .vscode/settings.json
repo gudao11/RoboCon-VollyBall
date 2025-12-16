@@ -1,0 +1,31 @@
+{
+    "C_Cpp.default.compilerPath": "C:\\Keil_v5\\ARM\\ARMCLANG\\bin\\armclang.exe",
+    "C_Cpp.default.cStandard": "c11",
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.intelliSenseMode": "linux-gcc-arm", // 适配ARM架构
+    "C_Cpp.default.includePath": [
+        // 项目自身头文件路径（根据你的项目结构调整，示例路径）
+        "${workspaceFolder}/Core/Inc",
+        "${workspaceFolder}/Drivers/STM32F4xx_HAL_Driver/Inc",
+        "${workspaceFolder}/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy",
+        "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
+        "${workspaceFolder}/Drivers/CMSIS/Include",
+        // MDK编译器自带头文件路径（固定）
+        "C:\\Keil_v5\\ARM\\ARMCLANG\\include",
+        "C:\\Keil_v5\\ARM\\ARMCLANG\\lib\\clang\\16.0.0\\include" // 版本号可能不同，按实际调整
+    ],
+    "cmake.cmakePath": "cube-cmake",
+    "cmake.configureArgs": [
+        "-DCMAKE_COMMAND=cube-cmake"
+    ],
+    "cmake.preferredGenerators": [
+        "Ninja"
+    ],
+    "stm32cube-ide-clangd.path": "cube",
+    "stm32cube-ide-clangd.arguments": [
+        "starm-clangd",
+        "--query-driver=${env:CUBE_BUNDLE_PATH}/gnu-tools-for-stm32/13.3.1+st.9/bin/arm-none-eabi-gcc.exe",
+        "--query-driver=${env:CUBE_BUNDLE_PATH}/gnu-tools-for-stm32/13.3.1+st.9/bin/arm-none-eabi-g++.exe"
+    ],
+
+}
