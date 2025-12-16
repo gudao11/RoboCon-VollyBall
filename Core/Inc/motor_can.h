@@ -2,9 +2,11 @@
 #ifndef __MOTOR_CAN_H
 #define __MOTOR_CAN_H
 
+
 #include "main.h"
 #include "can.h"
 #include "pid.h"
+#include "car_ctrl.h"
 /*
 
 
@@ -12,8 +14,7 @@
 */
 #define NORMALIZE_ANGLE180(angle) angle = ((angle) > 180) ? ((angle) - 360) : (((angle) < -180) ? (angle) + 360 : angle)//角度归一化
 #define MotorCount 4
-extern motor_info_t C620[MotorCount];
-extern motor_info_t C6xx[MotorCount];
+
 
 typedef struct{
 	int16_t Voltage;//电压值
@@ -37,7 +38,8 @@ typedef struct{
 	RxMsg_t 			Rxmsg;
 }motor_info_t;
 
-
+extern motor_info_t C620[MotorCount];
+extern motor_info_t C6xx[MotorCount];
 
 void can_filter_init(void);
 void Set_voltage(CAN_HandleTypeDef* hcan,int16_t vlotage[]);
