@@ -85,6 +85,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		pid_calc(&C620_2.Speed_pid,C620_2.Speed_pid.get,C620_2.Speed_pid.set);
 		pid_calc(&C620_3.Speed_pid,C620_3.Speed_pid.get,C620_3.Speed_pid.set);
 		pid_calc(&C620_4.Speed_pid,C620_4.Speed_pid.get,C620_4.Speed_pid.set);
+        Set_voltage(&hcan1,
+                    (int16_t)C620_1.Speed_pid.out,
+                    (int16_t)C620_2.Speed_pid.out,
+                    (int16_t)C620_3.Speed_pid.out,
+                    (int16_t)C620_4.Speed_pid.out
+                   );
         
     };
 }
