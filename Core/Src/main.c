@@ -27,6 +27,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "PID_TIM.h"
+#include "includes.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -68,7 +69,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-PID_TIM_Init(41,3);
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -98,12 +99,16 @@ PID_TIM_Init(41,3);
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 	
+	PID_TIM_Init(8399,9); // 1ms÷–∂œ
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  MecanumWheel_Move(2,2,0);
   while (1)
   {
+      
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

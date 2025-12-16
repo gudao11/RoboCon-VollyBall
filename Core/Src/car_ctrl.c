@@ -2,9 +2,9 @@
  motor_info_t C620[MotorCount];
 /************************ 麦轮机器人参数配置 ************************/
 // 物理参数（根据实际机器人修改）
-#define WHEEL_RADIUS    0.05f    // 轮子半径（米），示例：5cm
-#define WHEEL_BASE_HALF 0.15f    // 轮距半长（米），示例：15cm
-#define WHEEL_TRACK_HALF 0.15f   // 轴距半宽（米），示例：15cm
+#define WHEEL_RADIUS    0.077f     // 轮子半径（米），示例：5cm
+#define WHEEL_BASE_HALF  0.430f     // 轮距半长（米），示例：15cm
+#define WHEEL_TRACK_HALF 0.385f   // 轴距半宽（米），示例：15cm
 #define MAX_WHEEL_SPEED 1000     // 轮子最大转速（如PWM占空比最大值、编码器脉冲/秒）
 
 // 轮子转速结构体（存储四个轮子的目标转速）
