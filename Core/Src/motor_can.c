@@ -21,7 +21,6 @@ uint8_t can1RxData[8],can2RxData[8];     //接受数据缓存
 uint8_t isRcan1Started=0,isRcan2Started=0; //标志位，表示 CAN1 和 CAN2 是否已启动接收
 uint8_t can1_update = 1;
 uint8_t can2_update = 1; //标志位，表示 CAN1 和 CAN2 是否有新的数据需要发送
-extern uint16_t PID_Calc_Flag;
 
 /********************CAN发送*****************************/
 //CAN数据标记发送，保证发送资源正常

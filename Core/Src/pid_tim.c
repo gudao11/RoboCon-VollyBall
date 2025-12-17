@@ -4,7 +4,6 @@
 #include "motor_can.h"
 #include <stdint.h>
 uint16_t PID_Calc_Flag = 0;
-void Set_voltagec1(CAN_HandleTypeDef* hcan,int16_t vlotage[]);
 /************************ 需根据实际硬件修改的宏定义 ************************/
 // 定时器选择（示例：TIM3，根据实际使用的定时器修改）
 #define PID_TIMx               TIM3
