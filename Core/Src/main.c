@@ -96,8 +96,7 @@ int main(void)
   MX_USART1_UART_Init();
   MX_CAN2_Init();
   /* USER CODE BEGIN 2 */
-	
-	PID_TIM_Init(8399,9); // 1ms�ж�
+	All_Init();
 
   /* USER CODE END 2 */
 

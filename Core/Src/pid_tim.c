@@ -67,14 +67,16 @@ void PID_TIM_Init(uint16_t arr, uint16_t psc)
  */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
+    static int16_t voltages[4];
     if (htim->Instance == PID_TIMx)  // 确认是PID定时器的更新中断
     {
         for(int i=0;i<MotorCount;i++)
         {
             pid_calc(&C620[i].Speed_pid,C620[i].Speed_pid.get,C620[i].Speed_pid.set);
-            int16_t vel=(int16_t)C620[i].Speed_pid.out;
-            Set_voltagec1(&hcan1,&vel);
+            voltages[i]=(int16_t)C620[i].Speed_pid.out;
+            
         }
+        Set_voltagec1(&hcan1,voltages);
     }
 }
 
