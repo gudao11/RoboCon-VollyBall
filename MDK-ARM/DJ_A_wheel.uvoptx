@@ -157,73 +157,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>76</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134231258</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\Core\Src\pid_tim.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\DJ_A_wheel\../Core/Src/pid_tim.c\76</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>69</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134231188</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\Core\Src\pid_tim.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\DJ_A_wheel\../Core/Src/pid_tim.c\69</Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>237</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134233704</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\Core\Src\stm32f4xx_it.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\DJ_A_wheel\../Core/Src/stm32f4xx_it.c\237</Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
-          <LineNumber>245</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134233744</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\Core\Src\stm32f4xx_it.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\DJ_A_wheel\../Core/Src/stm32f4xx_it.c\245</Expression>
-        </Bp>
-        <Bp>
-          <Number>4</Number>
-          <Type>0</Type>
           <LineNumber>3899</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134230858</Address>
+          <Address>134230970</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -235,11 +171,11 @@
           <Expression>\\DJ_A_wheel\../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c\3899</Expression>
         </Bp>
         <Bp>
-          <Number>5</Number>
+          <Number>1</Number>
           <Type>0</Type>
           <LineNumber>3896</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134230842</Address>
+          <Address>134230954</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -251,23 +187,23 @@
           <Expression>\\DJ_A_wheel\../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c\3896</Expression>
         </Bp>
         <Bp>
-          <Number>6</Number>
+          <Number>2</Number>
           <Type>0</Type>
-          <LineNumber>70</LineNumber>
+          <LineNumber>92</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
+          <Address>134233500</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>../Core/Src/main.c</Filename>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\Core\Src\motor_can.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression></Expression>
+          <Expression>\\DJ_A_wheel\../Core/Src/motor_can.c\92</Expression>
         </Bp>
         <Bp>
-          <Number>7</Number>
+          <Number>3</Number>
           <Type>0</Type>
           <LineNumber>112</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -283,7 +219,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>8</Number>
+          <Number>4</Number>
           <Type>0</Type>
           <LineNumber>122</LineNumber>
           <EnabledFlag>1</EnabledFlag>
