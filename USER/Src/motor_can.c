@@ -10,25 +10,11 @@
   ******************************************************************************
   */
 #include "includes.h"
-/**
-  ******************************************************************************
-  * File Name          : CANTask.c
-  * Description        : CAN通信任务
-  ******************************************************************************
-  *
-  * Copyright (c) 2025 Team TPP-FoShan University
-  * All rights reserved.
-  *
-  ******************************************************************************
-  */
-#include "includes.h"
 #include "can.h"
 #include "main.h"
 #include "pid_tim.h"
 #include "stm32f4xx_hal_can.h"
 #include <stdint.h>
-motor_info_t C6xx[MotorCount];
-CAN_RxHeaderTypeDef can1RxMsg,can2RxMsg; //接受消息结构体
 motor_info_t C6xx[MotorCount];
 CAN_RxHeaderTypeDef can1RxMsg,can2RxMsg; //接受消息结构体
 uint8_t can1RxData[8],can2RxData[8];     //接受数据缓存
@@ -44,7 +30,7 @@ void HAL_CAN_TxCpltCallback(CAN_HandleTypeDef* hcan){
 	} else if(hcan == &hcan2){
 		can2_update = 1;
 	}
-
+}
 
 /*滤波器配置及can初始化*/
 void can1_filter_init(void)
@@ -161,18 +147,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 				 flag=1;
 			 }
 		 }	
-		 for(int i=0;i<MotorCount;i++)
-		 {
-			 if(can2RxMsg.StdId==0x201+i){
-				 C6xx[i].Rxmsg.Angle= ((can2RxData[0] << 8) | can2RxData[1])*360/8192.0f;
-				 C6xx[i].Rxmsg.Speed= ((can2RxData[2] << 8) | can2RxData[3]);
-				 C6xx[i].Rxmsg.Torque=((can2RxData[4] << 8) | can2RxData[5]);
-				 C6xx[i].Rxmsg.Temp=can2RxData[6];
-				 flag=1;
-			 }
-		 }	
 		}
-
 
 
 	

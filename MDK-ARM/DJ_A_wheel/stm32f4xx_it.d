@@ -32,8 +32,8 @@ dj_a_wheel/stm32f4xx_it.o: ..\Core\Src\stm32f4xx_it.c ..\Core\Inc\main.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\Core\Inc\stm32f4xx_it.h ..\Core\Inc\includes.h \
-  E:\Keil5\ C51\ARM\ARMCLANG\Bin\..\include\math.h ..\Core\Inc\pid.h \
-  ..\Core\Inc\main.h ..\Core\Inc\motor_can.h ..\Core\Inc\can.h \
-  ..\Core\Inc\pid_tim.h ..\Core\Inc\car_ctrl.h ..\Core\Inc\bsp_rc.h \
-  ..\Core\Inc\Initialize.h
+  ..\Core\Inc\stm32f4xx_it.h ..\USER\Inc\includes.h \
+  E:\Keil5\ C51\ARM\ARMCLANG\Bin\..\include\math.h ..\USER\Inc\pid.h \
+  ..\Core\Inc\tim.h ..\Core\Inc\main.h ..\USER\Inc\motor_can.h \
+  ..\Core\Inc\can.h ..\USER\Inc\pid_tim.h ..\USER\Inc\car_ctrl.h \
+  ..\USER\Inc\bsp_rc.h ..\USER\Inc\Initialize.h

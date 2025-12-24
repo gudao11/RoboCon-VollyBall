@@ -18,10 +18,8 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "Initialize.h"
 #include "can.h"
 #include "i2c.h"
-#include "stm32f4xx_hal_can.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -119,18 +117,18 @@ if (HAL_CAN_Start(&hcan1) != HAL_OK)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  MecanumWheel_Move(2,2,9);
+  MecanumWheel_Move(1,1,1);//整车控制函数
   while (1)
   {
-	  static int16_t voltages[4]={0};
-      for(int i=0;i<MotorCount;i++)
-        {
-            pid_calc(&C620[i].Speed_pid,C620[i].Speed_pid.get,C620[i].Speed_pid.set);
-            voltages[i]=(int16_t)C620[i].Speed_pid.out;
-            
-        }
-        Set_voltagec1(&hcan1,voltages);
-		HAL_Delay(10);
+//	  static int16_t voltages[4]={0};
+//      for(int i=0;i<MotorCount;i++)
+//        {
+//            pid_calc(&C620[i].Speed_pid,C620[i].Speed_pid.get,C620[i].Speed_pid.set);
+//            voltages[i]=(int16_t)C620[i].Speed_pid.out;
+//            
+//        }
+//        Set_voltagec1(&hcan1,voltages);
+//		HAL_Delay(10);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

@@ -54,4 +54,5 @@ void MecanumWheel_Move(float vx, float vy, float wz)
 	C620[1].Speed_pid.set = wheel_speed.fr;
 	C620[2].Speed_pid.set = wheel_speed.rr;
 	C620[3].Speed_pid.set = wheel_speed.rl;
+
 }
