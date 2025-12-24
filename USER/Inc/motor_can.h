@@ -28,6 +28,7 @@ typedef struct{
 	pid_t 				Angel_pid;
 	
 	//控制角度的参数
+	uint16_t			Target;//目标角度
 	double 				lastRead;
 	double 				Real;//相对零点转了多少度
 	uint16_t 			Zero;//上电后的第一个位置做为零点
