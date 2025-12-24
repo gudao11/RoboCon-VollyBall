@@ -44,12 +44,20 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
-    # Add user sources here
+    # USER sources
+    ${CMAKE_SOURCE_DIR}/USER/Src/bsp_rc.c
+    ${CMAKE_SOURCE_DIR}/USER/Src/car_ctrl.c
+    ${CMAKE_SOURCE_DIR}/USER/Src/Initialize.c
+    ${CMAKE_SOURCE_DIR}/USER/Src/motor_can.c
+    ${CMAKE_SOURCE_DIR}/USER/Src/pid.c
+    ${CMAKE_SOURCE_DIR}/USER/Src/pid_tim.c
+    ${CMAKE_SOURCE_DIR}/USER/Src/remote_control.c
 )
 
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
-    # Add user defined include paths
+    # USER include directory
+    ${CMAKE_SOURCE_DIR}/USER/Inc
 )
 
 # Add project symbols (macros)
