@@ -1,4 +1,4 @@
-dj_a_wheel/bsp_rc.o: ..\Core\Src\bsp_rc.c ..\Core\Inc\bsp_rc.h \
+dj_a_wheel/bsp_rc.o: ..\USER\Src\bsp_rc.c ..\USER\Inc\bsp_rc.h \
   ..\Core\Inc\main.h ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
@@ -31,5 +31,4 @@ dj_a_wheel/bsp_rc.o: ..\Core\Src\bsp_rc.c ..\Core\Inc\bsp_rc.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
-  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\Core\Inc\main.h
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h

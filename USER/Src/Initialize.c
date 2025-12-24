@@ -4,7 +4,6 @@ void All_Init(){
 
     can1_filter_init();
     can2_fliter_init();
-    PID_TIM_Init(8399,9); //1ms÷–∂œ
 
     for(int i=0;i<MotorCount;i++){
         PID_Struct_Init(&C620[i].Speed_pid, 

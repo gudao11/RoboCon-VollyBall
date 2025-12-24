@@ -19,7 +19,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "can.h"
-#include "stm32f4xx_hal_gpio.h"
 
 /* USER CODE BEGIN 0 */
 

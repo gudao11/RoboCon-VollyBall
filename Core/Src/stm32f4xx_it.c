@@ -236,11 +236,7 @@ void CAN1_RX0_IRQHandler(void)
 void TIM3_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM3_IRQn 0 */
-	 if (__HAL_TIM_GET_FLAG(&htim3, TIM_FLAG_UPDATE) != RESET)  // 检查更新中断标志
-  {
-    __HAL_TIM_CLEAR_FLAG(&htim3, TIM_FLAG_UPDATE);  // 清除标志
-    // 这里写1ms定时到的处理代码（比如计数、控制IO等）
-  }
+
   /* USER CODE END TIM3_IRQn 0 */
   HAL_TIM_IRQHandler(&htim3);
   /* USER CODE BEGIN TIM3_IRQn 1 */
