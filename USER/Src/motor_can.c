@@ -130,6 +130,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 			C620[i].Rxmsg.Speed= ((can1RxData[2] << 8) | can1RxData[3]);
 			C620[i].Rxmsg.Torque=((can1RxData[4] << 8) | can1RxData[5]);
 			C620[i].Rxmsg.Temp=can1RxData[6];
+			C620[i].Speed_pid.get=C620[i].Rxmsg.Speed;
 			flag=1;
 		}
 	}
@@ -148,7 +149,26 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 			 }
 		 }	
 		}
-
-
 	
 }
+
+void Angle_Ctrl(motor_info_t *ID,uint16_t Target)
+{
+	if(ID->FirstEntre==1)
+	{
+		ID->relative=0;
+		ID->lastRead=ID->Rxmsg.Angle;
+		ID->FirstEntre=0;
+	}
+	else
+	{
+		ID->Target=Target;
+		int16_t tmp=(int16_t)ID->Rxmsg.Angle- (int16_t)ID->lastRead;
+		ID->relative+=(tmp<180?(tmp>-180?tmp:tmp+360):tmp-360);
+		//if(ID->Rxmsg.Angle*Target<0&&fabs(ID->Rxmsg.Angle-Target)>180);
+		ID->Current=PID_PROCESS_Double(&ID->Angel_pid,&ID->Speed_pid,Target,ID->Rxmsg.Angle,ID->Rxmsg.Speed);
+		ID->lastRead=ID->Rxmsg.Angle;
+	}
+
+}
+
