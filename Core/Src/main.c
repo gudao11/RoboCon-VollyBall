@@ -70,7 +70,6 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -90,10 +89,9 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
+  
   MX_GPIO_Init();
-  HAL_Delay(200);
   MX_CAN1_Init();
-  HAL_Delay(100);
   MX_I2C1_Init();
   MX_TIM3_Init();
   MX_USART1_UART_Init();
@@ -101,18 +99,18 @@ int main(void)
   /* USER CODE BEGIN 2 */
   
   
-  HAL_Delay(10);
+ 
 	
   All_Init();
   
 
 
 	uint8_t can_retry = 0;
-	while (can_retry < 5) { // ÖØÊÔ5´Î
+	while (can_retry < 5) { // ï¿½ï¿½ï¿½ï¿½5ï¿½ï¿½
     if (HAL_CAN_Start(&hcan1) == HAL_OK) {
         break;
     }
-    HAL_Delay(20); // Ã¿´ÎÖØÊÔ¼ä¸ô20ms
+    HAL_Delay(20); // Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½20ms
     can_retry++;
 }
 	
@@ -121,7 +119,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  MecanumWheel_Move(0.1,100,100);//Õû³µ¿ØÖÆº¯Êý
+	HAL_Delay(5000);
+	MecanumWheel_Move(0,0,50);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æºï¿½ï¿½ï¿½
   while (1)
   {
 //	  static int16_t voltages[4]={0};
