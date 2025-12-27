@@ -1,4 +1,3 @@
-
 #ifndef __MOTOR_CAN_H
 #define __MOTOR_CAN_H
 
