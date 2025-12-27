@@ -23,7 +23,7 @@ typedef struct {
  * @param  wz: 旋转速度（顺时针=正，逆时针=负），单位：rad/s
  * @retval 四轮目标转速（已限幅，可直接输出到电机驱动）
  */
-void MecanumWheel_Move(float vx, float vy, float wz)
+WheelSpeed_t MecanumWheel_Move(float vx, float vy, float wz)
 {
     WheelSpeed_t wheel_speed = {0};
     float omega_fl, omega_fr, omega_rr, omega_rl;
@@ -54,5 +54,7 @@ void MecanumWheel_Move(float vx, float vy, float wz)
 	C620[1].Speed_pid.set = -wheel_speed.fr;
 	C620[2].Speed_pid.set = wheel_speed.fl;
 	C620[3].Speed_pid.set = wheel_speed.rl;
+	
 
+    return wheel_speed;
 }

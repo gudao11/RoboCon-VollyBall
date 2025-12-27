@@ -9,28 +9,31 @@
   *
   ******************************************************************************
   */
-#include "includes.h"
+#include "motor_can.h"
 #include "can.h"
 #include "main.h"
 #include "pid_tim.h"
 #include "stm32f4xx_hal_can.h"
 #include <stdint.h>
-motor_info_t C6xx[MotorCount];
-CAN_RxHeaderTypeDef can1RxMsg,can2RxMsg; //接受消息结构体
+#include <sys/_intsup.h>
+HAL_CAN_RxMsgTypedef can1RxMsg,can2RxMsg; //接受消息结构体
 uint8_t can1RxData[8],can2RxData[8];     //接受数据缓存
 uint8_t isRcan1Started=0,isRcan2Started=0; //标志位，表示 CAN1 和 CAN2 是否已启动接收
+CAN_DATA_t sendData[4], receiveData[4];
 uint8_t can1_update = 1;
 uint8_t can2_update = 1; //标志位，表示 CAN1 和 CAN2 是否有新的数据需要发送
+extern uint16_t PID_Calc_Flag;
 
 /********************CAN发送*****************************/
 //CAN数据标记发送，保证发送资源正常
 void HAL_CAN_TxCpltCallback(CAN_HandleTypeDef* hcan){
 	if(hcan == &hcan1){
 		can1_update = 1;
-	} else if(hcan == &hcan2){
+	}
+//	else if(hcan == &hcan2){
 		can2_update = 1;
 	}
-}
+
 
 /*滤波器配置及can初始化*/
 void can1_filter_init(void)
@@ -72,12 +75,11 @@ void can2_fliter_init(void)
     isRcan2Started=1;
 }
 /*设置电机电压*/
-void Set_voltagec1(CAN_HandleTypeDef* hcan,int16_t voltage[])
+void Set_voltage1(CAN_HandleTypeDef* hcan,int16_t voltage[])
 {
-	uint32_t tx_mailbox;
   CAN_TxHeaderTypeDef can1TxMsg;
   uint8_t             can1TxData[8] = {0};
-  can1TxMsg.StdId = 0x200;
+  can1TxMsg.StdId = 0x1ff;
   can1TxMsg.IDE   = CAN_ID_STD;//标准ID
   can1TxMsg.RTR   = CAN_RTR_DATA;//数据帧
   can1TxMsg.DLC   = 8;//数据长度
@@ -86,18 +88,14 @@ void Set_voltagec1(CAN_HandleTypeDef* hcan,int16_t voltage[])
    can1TxData[2*i]=(voltage[i]>>8)&0xff;
    can1TxData[2*i+1]=(voltage[i])&0xff;
   }
-	/* 先检查是否有空的 TX mailbox，只有有空位才发送报文 */
-	if(HAL_CAN_GetTxMailboxesFreeLevel(hcan) > 0)
-	{
-			HAL_CAN_AddTxMessage(hcan, &can1TxMsg, can1TxData, &tx_mailbox);//发送报文
-	}
+  HAL_CAN_AddTxMessage(&hcan1, &can1TxMsg, can1TxData,(uint32_t*)CAN_TX_MAILBOX0);//发送报文
 }
 
-void Set_voltagec2(CAN_HandleTypeDef* hcan,int16_t voltage[])
+void Set_voltage2(CAN_HandleTypeDef* hcan,int16_t voltage[])
 {
   CAN_TxHeaderTypeDef can2TxMsg;
   uint8_t             can2TxData[8] = {0};
-  can2TxMsg.StdId = 0x200;
+  can2TxMsg.StdId = 0x1ff;
   can2TxMsg.IDE   = CAN_ID_STD;//标准ID
   can2TxMsg.RTR   = CAN_RTR_DATA;//数据帧
   can2TxMsg.DLC   = 8;//数据长度
@@ -106,11 +104,7 @@ void Set_voltagec2(CAN_HandleTypeDef* hcan,int16_t voltage[])
    can2TxData[2*i]=(voltage[i]>>8)&0xff;
    can2TxData[2*i+1]=(voltage[i])&0xff;
   }
-	/* 先检查是否有空的 TX mailbox，只有有空位才发送报文 */
-	if(HAL_CAN_GetTxMailboxesFreeLevel(hcan) > 0)
-	{
-			HAL_CAN_AddTxMessage(hcan, &can2TxMsg, can2TxData, (uint32_t*)CAN_TX_MAILBOX0);//发送报文
-	}
+  //HAL_CAN_AddTxMessage(&hcan2, &can2TxMsg, can2TxData,(uint32_t*)CAN_TX_MAILBOX0);//发送报文
 }
 
 /********************CAN接收*****************************/
