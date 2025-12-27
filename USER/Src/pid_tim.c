@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 #include "can.h"
 #include "includes.h"
 #include "motor_can.h"
 
+=======
+
+#include "includes.h"
+#include "can.h"
+#include "motor_can.h"
+#include <stdint.h>
+uint16_t PID_Calc_Flag = 0;
+>>>>>>> fd73ba2e5142705e533f5b293f7a8de7953a8b3d
 /************************ 需根据实际硬件修改的宏定义 ************************/
 // 定时器选择（示例：TIM3，根据实际使用的定时器修改）
 #define PID_TIMx               TIM3
@@ -30,10 +39,27 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     {
         for(int i=0;i<MotorCount;i++)
         {
+<<<<<<< HEAD
             pid_calc(&C620[i].Speed_pid,&C620[i].Speed_pid.get,&C620[i].Speed_pid.set);
             Set_voltagec1(&hcan1,(int16_t*)C620[i].Speed_pid.out);
         }
     }
+=======
+            pid_calc(&C620[i].Speed_pid,C620[i].Speed_pid.get,C620[i].Speed_pid.set);
+            voltages[i]=(int16_t)C620[i].Speed_pid.out;
+            
+        }
+        Set_voltagec1(&hcan1,voltages);
+    }
+	if(hcan1.ErrorCode!=0)
+	{
+		HAL_CAN_DeInit(&hcan1);
+		HAL_CAN_Init(&hcan1);
+		HAL_CAN_Start(&hcan1);
+	
+	
+	}
+>>>>>>> fd73ba2e5142705e533f5b293f7a8de7953a8b3d
 }
 
 /************************ 错误处理函数（可选） ************************/
