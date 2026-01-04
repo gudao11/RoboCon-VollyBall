@@ -1,2 +1,11 @@
+(一)注意事项
 不要随便动主分支,可以自己加一个分支.在push前先抓取远程提交把远程仓库里的更改先同步到自己的文件里后再提交push
 在tim3中断回调函数里计算pid和发送can报文
+最好在vscode里写代码,在keil里调试
+(二)必备插件链接链接
+hal库项目文件管理插件
+https://marketplace.visualstudio.com/items?itemName=stmicroelectronics.stm32-vscode-extension
+cmake需要下
+https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools
+vscode中文插件
+https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans
