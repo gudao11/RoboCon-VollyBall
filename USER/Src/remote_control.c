@@ -4,6 +4,8 @@
 extern UART_HandleTypeDef huart1;
 extern DMA_HandleTypeDef hdma_usart1_rx;
 
+uint8_t   dbus_buf[DBUS_BUFLEN];
+
 /**
   * @brief          remote control protocol resolution
   * @param[in]      sbus_buf: raw data point
@@ -57,7 +59,7 @@ const RC_ctrl_t *get_remote_control_point(void)
 
 
 //串口中断
-void USART1_IRQHandler(void)
+void USART1_IRQHandlerCallBack(void)
 {
     if(huart1.Instance->SR & UART_FLAG_RXNE)//接收到数据
     {

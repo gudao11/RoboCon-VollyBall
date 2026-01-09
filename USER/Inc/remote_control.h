@@ -19,8 +19,13 @@
 #ifndef REMOTE_CONTROL_H
 #define REMOTE_CONTROL_H
 //#include "struct_typedef.h"
+#include "includes.h"
 #include "main.h"
 #include "bsp_rc.h"
+
+#define DBUS_MAX_LEN     (50)
+#define DBUS_BUFLEN      (18)
+#define DBUS_HUART       huart1
 
 #define SBUS_RX_BUF_NUM 36u
 
@@ -101,5 +106,13 @@ extern void remote_control_init(void);
   * @retval         Ò£¿ØÆ÷Êý¾ÝÖ¸Õë
   */
 extern const RC_ctrl_t *get_remote_control_point(void);
+
+#define DBUS_MAX_LEN     (50)
+#define DBUS_BUFLEN      (18)
+#define DBUS_HUART       huart1
+
+extern uint8_t   dbus_buf[DBUS_BUFLEN];
+void USART1_IRQHandlerCallBack(void);
+
 
 #endif
