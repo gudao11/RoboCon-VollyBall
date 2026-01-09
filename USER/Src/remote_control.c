@@ -1,4 +1,5 @@
 #include "remote_control.h"
+#include "includes.h"
 #include "main.h"
 
 extern UART_HandleTypeDef huart1;
@@ -172,4 +173,9 @@ static void sbus_to_rc(volatile const uint8_t *sbus_buf, RC_ctrl_t *rc_ctrl)
     rc_ctrl->rc.ch[2] -= RC_CH_VALUE_OFFSET;
     rc_ctrl->rc.ch[3] -= RC_CH_VALUE_OFFSET;
     rc_ctrl->rc.ch[4] -= RC_CH_VALUE_OFFSET;
+	
+	car_x=rc_ctrl->rc.ch[0];
+	car_y=rc_ctrl->rc.ch[1];
+	car_w=rc_ctrl->rc.ch[2];
+	MecanumWheel_Move(car_x,car_y,car_w);
 }
