@@ -21,17 +21,6 @@
 *.uvgui.*
 *.uvguix.*
 
-# CMake / Ninja
-CMakeCache.txt
-CMakeFiles/
-cmake_install.cmake
-compile_commands.json
-build.ninja
-
-# Build directories
-/build/
-/Debug/
-/Release/
 
 # Object, binary and map files
 *.o
@@ -54,8 +43,6 @@ build.ninja
 *~
 
 # Keil/MDK project generated files
-*.uvprojx
-*.uvoptx
 *.lnp
 *.htm
 *.dep
@@ -74,14 +61,4 @@ Thumbs.db
 # Other user/runtime artifacts
 *.user
 *.lnk
-MDK-ARM/DJ_A_wheel/DJ_A_wheel.build_log.htm
-MDK-ARM/DJ_A_wheel.uvguix.pear
-MDK-ARM/DJ_A_wheel/pid_tim.o
-MDK-ARM/DJ_A_wheel/DJ_A_wheel.map
-MDK-ARM/DJ_A_wheel/DJ_A_wheel.htm
-MDK-ARM/DJ_A_wheel/DJ_A_wheel.build_log.htm
-MDK-ARM/DJ_A_wheel/DJ_A_wheel.build_log.htm
-MDK-ARM/DJ_A_wheel/DJ_A_wheel.axf
-MDK-ARM/DJ_A_wheel/DJ_A_wheel_DJ_A_wheel.dep
-MDK-ARM/DJ_A_wheel/car_ctrl.o
-MDK-ARM/DJ_A_wheel.uvguix.pear
+
