@@ -19,7 +19,6 @@
 #ifndef REMOTE_CONTROL_H
 #define REMOTE_CONTROL_H
 //#include "struct_typedef.h"
-#include "includes.h"
 #include "main.h"
 #include "bsp_rc.h"
 

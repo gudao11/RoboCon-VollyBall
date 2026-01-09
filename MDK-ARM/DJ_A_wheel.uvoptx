@@ -159,7 +159,7 @@
           <Type>0</Type>
           <LineNumber>3899</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134231658</Address>
+          <Address>134233542</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -175,7 +175,7 @@
           <Type>0</Type>
           <LineNumber>3896</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134231642</Address>
+          <Address>134233526</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -221,7 +221,7 @@
         <Bp>
           <Number>4</Number>
           <Type>0</Type>
-          <LineNumber>239</LineNumber>
+          <LineNumber>168</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -236,6 +236,22 @@
         </Bp>
         <Bp>
           <Number>5</Number>
+          <Type>0</Type>
+          <LineNumber>239</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>startup_stm32f427xx.s</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>6</Number>
           <Type>0</Type>
           <LineNumber>168</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -290,12 +306,17 @@
         <Ww>
           <count>7</count>
           <WinNumber>1</WinNumber>
-          <ItemText>C620[i].Speed_pid,0x0A</ItemText>
+          <ItemText>C620[1]</ItemText>
         </Ww>
         <Ww>
           <count>8</count>
           <WinNumber>1</WinNumber>
-          <ItemText>C620[1]</ItemText>
+          <ItemText>C620[i].Speed_pid</ItemText>
+        </Ww>
+        <Ww>
+          <count>9</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>rc_ctrl</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>

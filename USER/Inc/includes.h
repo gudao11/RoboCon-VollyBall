@@ -20,5 +20,4 @@ extern motor_info_t C620[MotorCount];
 extern motor_info_t C6xx[MotorCount];
 extern uint16_t PID_Calc_Flag;
 
-#define __packed  __attribute__((packed))
 #endif
