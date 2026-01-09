@@ -1,4 +1,6 @@
 (一)注意事项
+keil项目路径MDK-ARM->DJ_A_wheel.uvprojx
+芯片stm32F427IIH
 不要随便动主分支,可以自己加一个分支.在push前先抓取远程提交把远程仓库里的更改先同步到自己的文件里后再提交push
 在tim3中断回调函数里计算pid和发送can报文
 最好在vscode里写代码,在keil里调试
