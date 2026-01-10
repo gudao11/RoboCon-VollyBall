@@ -4,6 +4,7 @@ keil项目路径MDK-ARM->DJ_A_wheel.uvprojx
 不要随便动主分支,可以自己加一个分支.在push前先抓取远程提交把远程仓库里的更改先同步到自己的文件里后再提交push
 在tim3中断回调函数里计算pid和发送can报文
 最好在vscode里写代码,在keil里调试
+如果遇到报错可以打开.ioc文件重新生成代码
 (二)必备插件链接链接
 hal库项目文件管理插件
 https://marketplace.visualstudio.com/items?itemName=stmicroelectronics.stm32-vscode-extension
