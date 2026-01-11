@@ -20,3 +20,9 @@ https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pa
 2.3508电机串级pid控角度的多圈转动
 3.发球准备,发球,击球
 4.舵机对球的限位
+(四)DT7遥控器各通道对应
+1.右摇杆,左右对应ch[0].上下对应ch2[1]
+2.左摇杆,左右对应ch[2].上下对应ch[3],最下有限位可做为击球
+3.左上角滚轮对应ch[4]
+4.右上拨杆对应s[0],上中下值分别为1,3,2
+5.左上拨杆对应s[1],上中下值分别为1,3,2
