@@ -21,6 +21,7 @@
 #include "can.h"
 #include "dma.h"
 #include "i2c.h"
+#include "stm32f4xx_hal_tim.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -97,6 +98,7 @@ int main(void)
   MX_TIM3_Init();
   MX_USART1_UART_Init();
   MX_CAN2_Init();
+  MX_TIM14_Init();
   /* USER CODE BEGIN 2 */
   
   
@@ -116,12 +118,12 @@ int main(void)
 }
 	
 	HAL_TIM_Base_Start_IT(&htim3);
+  HAL_TIM_Base_Start_IT(&htim14);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	HAL_Delay(5000);
-	MecanumWheel_Move(0,0,50);//�������ƺ���
   while (1)
   {
 //	  static int16_t voltages[4]={0};
