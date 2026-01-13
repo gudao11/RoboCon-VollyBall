@@ -9,6 +9,7 @@
   *
   ******************************************************************************
   */
+#include "motor_can.h"
 #include "includes.h"
 #include "can.h"
 #include "main.h"
@@ -16,6 +17,7 @@
 #include "stm32f4xx_hal_can.h"
 #include <stdint.h>
 motor_info_t C6xx[MotorCount];
+motor_info_t damiao[MotorCount];
 CAN_RxHeaderTypeDef can1RxMsg,can2RxMsg; //接受消息结构体
 uint8_t can1RxData[8],can2RxData[8];     //接受数据缓存
 uint8_t isRcan1Started=0,isRcan2Started=0; //标志位，表示 CAN1 和 CAN2 是否已启动接收
@@ -93,11 +95,11 @@ void Set_voltagec1(CAN_HandleTypeDef* hcan,int16_t voltage[])
 	}
 }
 
-void Set_voltagec2(CAN_HandleTypeDef* hcan,int16_t voltage[])
+void Set_dm(CAN_HandleTypeDef* hcan,int16_t voltage[])
 {
   CAN_TxHeaderTypeDef can2TxMsg;
   uint8_t             can2TxData[8] = {0};
-  can2TxMsg.StdId = 0x200;
+  can2TxMsg.StdId = 0x3FE;
   can2TxMsg.IDE   = CAN_ID_STD;//标准ID
   can2TxMsg.RTR   = CAN_RTR_DATA;//数据帧
   can2TxMsg.DLC   = 8;//数据长度
@@ -140,11 +142,11 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 	     HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &can2RxMsg, can2RxData);
 		 for(int i=0;i<MotorCount;i++)
 		 {
-			 if(can2RxMsg.StdId==0x201+i){
-				 C6xx[i].Rxmsg.Angle= ((can2RxData[0] << 8) | can2RxData[1])*360/8192.0f;
-				 C6xx[i].Rxmsg.Speed= ((can2RxData[2] << 8) | can2RxData[3]);
-				 C6xx[i].Rxmsg.Torque=((can2RxData[4] << 8) | can2RxData[5]);
-				 C6xx[i].Rxmsg.Temp=can2RxData[6];
+			 if(can2RxMsg.StdId==0x301+i){
+				 damiao[i].Rxmsg.Angle= ((can2RxData[0] << 8) | can2RxData[1])*360/8192.0f;
+				 damiao[i].Rxmsg.Speed= ((can2RxData[2] << 8) | can2RxData[3]);
+				 damiao[i].Rxmsg.Torque=((can2RxData[4] << 8) | can2RxData[5]);
+				 damiao[i].Rxmsg.Temp=can2RxData[6];
 				 flag=1;
 			 }
 		 }	
