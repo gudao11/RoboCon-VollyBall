@@ -36,9 +36,16 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
             voltages[i]=(int16_t)C620[i].Speed_pid.out;
             
         }
+        for(int i=0;i<MotorCount;i++)
+        {
+            pid_calc(&damiao[i].Speed_pid,damiao[i].Speed_pid.get,damiao[i].Speed_pid.set);
+            voltages[i+2]=(int16_t)damiao[i].Speed_pid.out;
+            
+        }
+        Set_dm(&hcan2,voltages);
         Set_voltagec1(&hcan1,voltages);
     }
-	if(hcan1.ErrorCode!=0)
+	if(hcan1.ErrorCode!=0)//避免can总线错误导致死机
 	{
 		HAL_CAN_DeInit(&hcan1);
 		HAL_CAN_Init(&hcan1);
@@ -46,6 +53,19 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	
 	
 	}
+    if(hcan2.ErrorCode!=0)//避免can总线错误导致死机
+	{
+		HAL_CAN_DeInit(&hcan2);
+		HAL_CAN_Init(&hcan2);
+		HAL_CAN_Start(&hcan2);
+	
+	
+	}
+    //在这里可以添加角度环的中断处理逻辑
+    if(htim == &htim14)  // 确认是PID定时器的更新中断
+    {
+        
+    }
 }
 
 /************************ 错误处理函数（可选） ************************/

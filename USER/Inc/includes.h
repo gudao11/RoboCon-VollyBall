@@ -15,9 +15,11 @@
 #include "bsp_rc.h"
 #include "Initialize.h"
 #include "remote_control.h"
+#include "math_utils.h"
 
 extern motor_info_t C620[MotorCount];
 extern motor_info_t C6xx[MotorCount];
+extern motor_info_t damiao[MotorCount];
 extern uint16_t PID_Calc_Flag;
 extern uint16_t car_x,car_y,car_w;
 
