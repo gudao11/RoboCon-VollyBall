@@ -32,7 +32,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     {
         for(int i=0;i<MotorCount;i++)
         {
-            pid_calc(&C620[i].Speed_pid,C620[i].Speed_pid.get,C620[i].Speed_pid.set);
             voltages[i]=(int16_t)C620[i].Speed_pid.out;
             
         }
