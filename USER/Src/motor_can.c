@@ -133,6 +133,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 			C620[i].Rxmsg.Torque=((can1RxData[4] << 8) | can1RxData[5]);
 			C620[i].Rxmsg.Temp=can1RxData[6];
 			C620[i].Speed_pid.get=C620[i].Rxmsg.Speed;
+			pid_calc(&C620[i].Speed_pid,C620[i].Speed_pid.get,C620[i].Speed_pid.set);
 			flag=1;
 		}
 	}

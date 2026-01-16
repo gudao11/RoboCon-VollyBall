@@ -105,35 +105,19 @@ int main(void)
 	
   All_Init();
   
-
-
-	uint8_t can_retry = 0;
-	while (can_retry < 5) { // ����5��
-    if (HAL_CAN_Start(&hcan1) == HAL_OK) {
-        break;
-    }
-    HAL_Delay(20); // ÿ�����Լ��20ms
-    can_retry++;
-}
 	
 	HAL_TIM_Base_Start_IT(&htim3);
-  HAL_TIM_Base_Start_IT(&htim14);
+//  HAL_TIM_Base_Start_IT(&htim14);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	HAL_Delay(5000);
+  HAL_Delay(2000);
+
+
   while (1)
   {
-//	  static int16_t voltages[4]={0};
-//      for(int i=0;i<MotorCount;i++)
-//        {
-//            pid_calc(&C620[i].Speed_pid,C620[i].Speed_pid.get,C620[i].Speed_pid.set);
-//            voltages[i]=(int16_t)C620[i].Speed_pid.out;
-//            
-//        }
-//        Set_voltagec1(&hcan1,voltages);
-//		HAL_Delay(10);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
